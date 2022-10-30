@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Interview.Model.UriShortener.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Interview.DAL.DataContext;
 
 public class UriShortenerDBContext : DbContext
 {
-    public DbSet<Model.UriShortener.Entities.UriShortener> UriShorteners { get; set; }
+    public DbSet<UriShortenerEntity> UriShorteners { get; set; }
 
     public UriShortenerDBContext(DbContextOptions<UriShortenerDBContext> options)
         :base(options)

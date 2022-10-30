@@ -1,6 +1,6 @@
 ﻿namespace Interview.Model.UriShortener.Entities;
 
-public class UriShortener
+public class UriShortenerEntity
 {
     public int Id { get; set; }
 

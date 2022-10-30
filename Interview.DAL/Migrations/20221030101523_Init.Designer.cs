@@ -23,7 +23,7 @@ namespace Interview.DAL.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Interview.Model.UriShortener.Entities.UriShortener", b =>
+            modelBuilder.Entity("Interview.Model.UriShortenerEntity.Entities.UriShortenerEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
