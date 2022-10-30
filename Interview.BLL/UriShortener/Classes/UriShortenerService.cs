@@ -16,21 +16,21 @@ public class UriShortenerService : IUriShortenerService
     {
         _dbContext = dbContext;
     }
-    public async Task<UriShortenerDto> CreateShortUriAsync(string originalUri)
+    public async Task<UriShortenerDto> CreateShortUriAsync(string originalUrl)
     {
         try
         {
-            var uriLeftPart = UrlHelper.GetUriLeftPart(originalUri);
+            var uriLeftPart = UrlHelper.GetUriLeftPart(originalUrl);
             var shortUri = UrlHelper.GetShortUri(uriLeftPart);
 
-            if (await CheckIsExistUriAsync(originalUri))
+            if (await CheckIsExistUriAsync(originalUrl))
             {
-                return await GetShortUriAsync(originalUri);
+                return await GetShortUriAsync(originalUrl);
             }
 
             UriShortenerEntity shortenerEntity = new()
             {
-                OrginalUri = originalUri,
+                OrginalUri = originalUrl,
                 ShortenerUri = shortUri,
                 UsedUriCount = 0
             };
@@ -47,11 +47,11 @@ public class UriShortenerService : IUriShortenerService
         }
     }
 
-    public async Task<UriShortenerDto> GetShortUriAsync(string originalUri)
+    public async Task<UriShortenerDto> GetShortUriAsync(string shortUrl)
     {
         try
         {
-            var selectedUri = await _dbContext.UriShorteners.SingleOrDefaultAsync(u => u.OrginalUri == originalUri);
+            var selectedUri = await _dbContext.UriShorteners.SingleOrDefaultAsync(u => u.ShortenerUri == shortUrl);
             if (selectedUri == null) throw new Exception(ExceptionMessageConstants.UrlNotFound);
 
             return new UriShortenerDto { ShortenerUri = selectedUri.ShortenerUri, OrginalUri = selectedUri.OrginalUri };
@@ -78,11 +78,11 @@ public class UriShortenerService : IUriShortenerService
         }
     }
 
-    public async Task IncrementUsedUriAsync(string shortUri)
+    public async Task IncrementUsedUriAsync(string shortUrl)
     {
         try
         {
-            var uriShortenerEntity = await _dbContext.UriShorteners.SingleOrDefaultAsync(u => u.ShortenerUri == shortUri);
+            var uriShortenerEntity = await _dbContext.UriShorteners.SingleOrDefaultAsync(u => u.ShortenerUri == shortUrl);
 
             if (uriShortenerEntity == null) throw new Exception(ExceptionMessageConstants.UrlNotFound);
 

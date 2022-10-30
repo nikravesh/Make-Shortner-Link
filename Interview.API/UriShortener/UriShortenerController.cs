@@ -56,7 +56,9 @@ public class UriShortenerController : ControllerBase
 
             await _uriShortnereService.IncrementUsedUriAsync(uriShortenerDto.ShortenerUri);
 
-            return Redirect(uriShortenerDto.OrginalUri);
+            //redirect to (uriShortenerDto.OrginalUri);
+
+            return Ok(uriShortenerDto.OrginalUri);
         }
         catch (SqlException e)
         {
