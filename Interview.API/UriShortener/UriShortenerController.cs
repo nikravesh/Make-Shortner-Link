@@ -1,6 +1,7 @@
 ﻿using Interview.API.Core;
 using Interview.BLL.UriShortener.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 
 namespace Interview.API.UriShortener;
 [Route("api/[controller]")]
@@ -20,12 +21,16 @@ public class UriShortenerController : ControllerBase
     public async Task<IActionResult> CreateShortUrl([FromBody] string orginalUrl)
     {
         if (string.IsNullOrWhiteSpace(orginalUrl))
-            return BadRequest(APIConstants.BadRequestMessage);
+            return BadRequest(APIErrorMessageConstants.BadRequestMessage);
 
         try
         {
             var uriShortenerDto = await _uriShortnereService.CreateShortUriAsync(orginalUrl);
             return Ok(uriShortenerDto);
+        }
+        catch (SqlException e)
+        {
+            return Content(APIErrorMessageConstants.TryAgain);
         }
         catch (Exception e)
         {
@@ -40,16 +45,27 @@ public class UriShortenerController : ControllerBase
     public async Task<IActionResult> Go([FromQuery] string url)
     {
         if (string.IsNullOrWhiteSpace(url))
-            return BadRequest(APIConstants.BadRequestMessage);
+            return BadRequest(APIErrorMessageConstants.BadRequestMessage);
 
-        if (await _uriShortnereService.CheckIsExistUriAsync(url))
-            return BadRequest(APIConstants.NotFoundUrl);
+        try
+        {
+            if (await _uriShortnereService.CheckIsExistUriAsync(url))
+                return BadRequest(APIErrorMessageConstants.NotFoundUrl);
 
-        var uriShortenerDto = await _uriShortnereService.GetShortUriAsync(url);
+            var uriShortenerDto = await _uriShortnereService.GetShortUriAsync(url);
 
-        await _uriShortnereService.IncrementUsedUriAsync(uriShortenerDto.ShortenerUri);
+            await _uriShortnereService.IncrementUsedUriAsync(uriShortenerDto.ShortenerUri);
 
-        return Redirect(uriShortenerDto.OrginalUri);
+            return Redirect(uriShortenerDto.OrginalUri);
+        }
+        catch (SqlException e)
+        {
+            return Content(APIErrorMessageConstants.TryAgain);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
     }
 
     [Route("navigateCount")]
@@ -57,8 +73,19 @@ public class UriShortenerController : ControllerBase
     public async Task<IActionResult> GetUrlUsed([FromQuery] string url)
     {
         if (string.IsNullOrWhiteSpace(url))
-            return BadRequest(APIConstants.BadRequestMessage);
+            return BadRequest(APIErrorMessageConstants.BadRequestMessage);
 
-        return Ok(await _uriShortnereService.GetUrlUsedCount(url));
+        try
+        {
+            return Ok(await _uriShortnereService.GetUrlUsedCount(url));
+        }
+        catch (SqlException e)
+        {
+            return Content(APIErrorMessageConstants.TryAgain);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
     }
 }
