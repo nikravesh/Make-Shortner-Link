@@ -41,7 +41,7 @@ public class UriShortenerService : IUriShortenerService
     public async Task<UriShortenerDto> GetShortUriAsync(string originalUri)
     {
         var selectedUri = await _dbContext.UriShorteners.SingleOrDefaultAsync(u => u.OrginalUri == originalUri);
-        if (selectedUri == null) throw new Exception("Url doesn't Exist!");
+        if (selectedUri == null) throw new Exception(ExceptionMessageConstants.UrlNotFound);
 
         return new UriShortenerDto { ShortenerUri = selectedUri.ShortenerUri, OrginalUri = selectedUri.OrginalUri };
     }
@@ -57,7 +57,7 @@ public class UriShortenerService : IUriShortenerService
     {
         var uriShortenerEntity = await _dbContext.UriShorteners.SingleOrDefaultAsync(u => u.ShortenerUri == shortUri);
 
-        if (uriShortenerEntity == null) throw new Exception("Url not found!");
+        if (uriShortenerEntity == null) throw new Exception(ExceptionMessageConstants.UrlNotFound);
 
         uriShortenerEntity.UsedUriCount += 1;
         _dbContext.UriShorteners.Update(uriShortenerEntity);
@@ -68,7 +68,7 @@ public class UriShortenerService : IUriShortenerService
     {
         var uriShortenerEntity = await _dbContext.UriShorteners.FirstOrDefaultAsync(u => u.ShortenerUri == shortUrl);
 
-        if (uriShortenerEntity == null) throw new Exception("The shortener url count not found!");
+        if (uriShortenerEntity == null) throw new Exception(ExceptionMessageConstants.UrlNotFound);
 
         return uriShortenerEntity.UsedUriCount;
     }
