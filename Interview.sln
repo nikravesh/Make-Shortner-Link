@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interview.DAL", "Interview.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interview.API", "Interview.API\Interview.API.csproj", "{E8D4043D-E0FF-4DCC-ACCE-A6976DC3391D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interview.BLL", "Interview.BLL\Interview.BLL.csproj", "{24657710-ADA7-4FFE-A612-F94B995C02A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{E8D4043D-E0FF-4DCC-ACCE-A6976DC3391D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8D4043D-E0FF-4DCC-ACCE-A6976DC3391D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8D4043D-E0FF-4DCC-ACCE-A6976DC3391D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24657710-ADA7-4FFE-A612-F94B995C02A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24657710-ADA7-4FFE-A612-F94B995C02A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24657710-ADA7-4FFE-A612-F94B995C02A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24657710-ADA7-4FFE-A612-F94B995C02A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
