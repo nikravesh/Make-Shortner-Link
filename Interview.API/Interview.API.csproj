@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Interview.BLL\Interview.BLL.csproj" />
     <ProjectReference Include="..\Interview.DAL\Interview.DAL.csproj" />
   </ItemGroup>
 

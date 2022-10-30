@@ -8,7 +8,9 @@ public interface IUriShortenerService
 
     Task<UriShortenerDto> GetShortUriAsync(string originalUri);
 
-    Task<bool> CheckIsExistUriAsync(string shortUri);
+    Task<bool> CheckIsExistUriAsync(string orginalUrl);
 
     Task IncrementUsedUriAsync(string shortUri);
+
+    Task<int> GetUrlUsedCount(string shortUrl);
 }
