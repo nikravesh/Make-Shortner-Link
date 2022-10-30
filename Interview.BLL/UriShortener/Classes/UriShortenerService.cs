@@ -10,12 +10,18 @@ namespace Interview.BLL.UriShortener.Classes;
 
 public class UriShortenerService : IUriShortenerService
 {
+    #region Fields
     private readonly UriShortenerDBContext _dbContext;
+    #endregion
 
+    #region Constructor
     public UriShortenerService(UriShortenerDBContext dbContext)
     {
         _dbContext = dbContext;
     }
+    #endregion
+
+    #region Implementation of IUriShortenerService
     public async Task<UriShortenerDto> CreateShortUriAsync(string originalUrl)
     {
         try
@@ -40,7 +46,7 @@ public class UriShortenerService : IUriShortenerService
 
             return new UriShortenerDto { ShortenerUri = shortenerEntity.ShortenerUri, OrginalUri = shortenerEntity.OrginalUri };
         }
-        catch (SqlException e) 
+        catch (SqlException e)
         {
             //todo : take log
             throw;
@@ -112,4 +118,5 @@ public class UriShortenerService : IUriShortenerService
             throw;
         }
     }
+    #endregion
 }
