@@ -22,6 +22,8 @@ public class APITests
         var controller = new UriShortenerController(_urlShortenerService.Object);
         
         var response = await controller.CreateShortUrl(url);
+
+        Assert.IsNotEmpty(response.);
         
     }
 }

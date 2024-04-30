@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interview.Model", "Interview.Model\Interview.Model.csproj", "{1D60C5C9-7DFF-4597-903B-AFA228147DF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortenerLink.Model", "Interview.Model\ShortenerLink.Model.csproj", "{1D60C5C9-7DFF-4597-903B-AFA228147DF2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interview.DAL", "Interview.DAL\Interview.DAL.csproj", "{825C339B-F268-4499-A10A-929AAA5D13DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortenerLink.DAL", "Interview.DAL\ShortenerLink.DAL.csproj", "{825C339B-F268-4499-A10A-929AAA5D13DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interview.API", "Interview.API\Interview.API.csproj", "{E8D4043D-E0FF-4DCC-ACCE-A6976DC3391D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortenerLink.API", "Interview.API\ShortenerLink.API.csproj", "{E8D4043D-E0FF-4DCC-ACCE-A6976DC3391D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interview.BLL", "Interview.BLL\Interview.BLL.csproj", "{24657710-ADA7-4FFE-A612-F94B995C02A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortenerLink.BLL", "Interview.BLL\ShortenerLink.BLL.csproj", "{24657710-ADA7-4FFE-A612-F94B995C02A5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interview.APITests", "Interview.APITests\Interview.APITests.csproj", "{7BE89440-EA92-48DF-93F5-D8DB6D170E6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortenerLink.APITests", "Interview.APITests\ShortenerLink.APITests.csproj", "{7BE89440-EA92-48DF-93F5-D8DB6D170E6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

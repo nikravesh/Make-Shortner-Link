@@ -18,8 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Interview.API\Interview.API.csproj" />
-    <ProjectReference Include="..\Interview.BLL\Interview.BLL.csproj" />
+    <ProjectReference Include="..\Interview.API\ShortenerLink.API.csproj" />
+    <ProjectReference Include="..\Interview.BLL\ShortenerLink.BLL.csproj" />
   </ItemGroup>
 
 </Project>
