@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ShortenerLink.BLL\ShortenerLink.BLL.csproj" />
     <ProjectReference Include="..\ShortenerLink.DAL\ShortenerLink.DAL.csproj" />
   </ItemGroup>
