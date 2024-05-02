@@ -5,17 +5,17 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortenerLink.Model", "ShortenerLink.Model\ShortenerLink.Model.csproj", "{1D60C5C9-7DFF-4597-903B-AFA228147DF2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortenerLink.DAL", "ShortenerLink.DAL\ShortenerLink.DAL.csproj", "{825C339B-F268-4499-A10A-929AAA5D13DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortenerLink.DAL", "src\ShortenerLink.DAL\ShortenerLink.DAL.csproj", "{825C339B-F268-4499-A10A-929AAA5D13DE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortenerLink.API", "ShortenerLink.API\ShortenerLink.API.csproj", "{E8D4043D-E0FF-4DCC-ACCE-A6976DC3391D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortenerLink.API", "src\ShortenerLink.API\ShortenerLink.API.csproj", "{E8D4043D-E0FF-4DCC-ACCE-A6976DC3391D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortenerLink.BLL", "ShortenerLink.BLL\ShortenerLink.BLL.csproj", "{24657710-ADA7-4FFE-A612-F94B995C02A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortenerLink.BLL", "src\ShortenerLink.BLL\ShortenerLink.BLL.csproj", "{24657710-ADA7-4FFE-A612-F94B995C02A5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CBBAB35F-539A-4D9E-AB35-33B6E3104ED6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{932447C0-6836-40BD-9A7B-D05A6B9F9B90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortenerLink.Tests", "ShortenerLink.Tests\ShortenerLink.Tests.csproj", "{49E95674-BD2E-4B41-B9E7-41A58F5EE987}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortenerLink.ApiTests", "tests\ShortenerLink.Tests\ShortenerLink.ApiTests.csproj", "{49E95674-BD2E-4B41-B9E7-41A58F5EE987}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
