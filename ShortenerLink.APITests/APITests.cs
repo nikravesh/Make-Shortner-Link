@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Mvc;
+
 using Moq;
 using ShortenerLink.API.UriShortener;
 using ShortenerLink.BLL.UriShortener.Interfaces;
@@ -23,7 +25,7 @@ public class APITests
 
         var response = await controller.CreateShortUrl(url);
 
-        //Assert.IsNotEmpty(response.);
+        Assert.Equals(typeof(OkObjectResult), response);
 
     }
 }

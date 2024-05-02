@@ -19,7 +19,7 @@ public class UriShortenerController : ControllerBase
     public UriShortenerController(IUriShortenerService uriShortnereService)
     {
         _uriShortnereService = uriShortnereService;
-        _semaphore = new SemaphoreSlim(0, 1);
+        _semaphore = new SemaphoreSlim(1, 1);
     }
     #endregion
 
