@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortenerLink.Model", "ShortenerLink.Model\ShortenerLink.Model.csproj", "{1D60C5C9-7DFF-4597-903B-AFA228147DF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortenerLink.Model", "src\ShortenerLink.Model\ShortenerLink.Model.csproj", "{1D60C5C9-7DFF-4597-903B-AFA228147DF2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortenerLink.DAL", "src\ShortenerLink.DAL\ShortenerLink.DAL.csproj", "{825C339B-F268-4499-A10A-929AAA5D13DE}"
 EndProject

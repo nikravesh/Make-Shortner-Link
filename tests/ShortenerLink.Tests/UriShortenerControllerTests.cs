@@ -1,14 +1,6 @@
-using System.Web.Http.Results;
-
 using Microsoft.AspNetCore.Mvc;
-
-using Moq;
-
 using ShortenerLink.API.Core;
 using ShortenerLink.API.UriShortener;
-using ShortenerLink.BLL.UriShortener.Classes;
-using ShortenerLink.BLL.UriShortener.Interfaces;
-using ShortenerLink.Model.UriShortener.DTOs;
 
 namespace ShortenerLink.Tests;
 
@@ -50,12 +42,12 @@ public class UriShortenerControllerTests
     }
 
     [Theory]
-    [InlineData("https://github.com/nikravesh/Make Shortner Link")]
+    [InlineData("https://github.com/nikravesh/Make-Shortner Link.git")]
     public async Task CreateShortenerUrlWithSpaceContainUrlWhenCalledReturnBadRequest(string url)
     {
         UriShortenerController controller = UriShortenerControllerTestsMotherObject.GetUriShortenerControllerObject;
 
-        var response = await controller.CreateShortUrl(string.Empty);
+        var response = await controller.CreateShortUrl(url);
 
         Assert.IsType<BadRequestObjectResult>(response);
         Assert.Equal("url cannot be null!", APIErrorMessageConstants.BadRequestMessage);
