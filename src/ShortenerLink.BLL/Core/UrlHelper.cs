@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 namespace ShortenerLink.BLL.Core;
 
@@ -19,5 +20,12 @@ public class UrlHelper
                 .ToArray();
 
         return host + "/" + new string(token);
+    }
+
+    public static bool IsUrlValid(string url)
+    {
+        string pattern = @"^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$";
+        Regex Rgx = new(pattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        return Rgx.IsMatch(url);
     }
 }

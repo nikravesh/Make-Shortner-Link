@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 
 using ShortenerLink.API.Core;
+using ShortenerLink.BLL.Core;
 using ShortenerLink.BLL.UriShortener.Interfaces;
 
 namespace ShortenerLink.API.UriShortener;
@@ -35,6 +36,9 @@ public class UriShortenerController : ControllerBase
     {
         if (string.IsNullOrWhiteSpace(orginalUrl))
             return BadRequest(APIErrorMessageConstants.BadRequestMessage);
+
+        if(!UrlHelper.IsUrlValid(orginalUrl))
+            return BadRequest(APIErrorMessageConstants.InValidUrl);
 
         try
         {
