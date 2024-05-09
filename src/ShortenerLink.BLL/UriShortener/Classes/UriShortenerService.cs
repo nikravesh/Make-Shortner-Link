@@ -45,7 +45,7 @@ public class UriShortenerService : IUriShortenerService
             await _dbContext.UriShorteners.AddAsync(shortenerEntity);
             await _dbContext.SaveChangesAsync();
 
-            return new UriShortenerDto { ShortenerUri = shortenerEntity.ShortenerUri, OrginalUri = shortenerEntity.OrginalUri };
+            return new UriShortenerDto(shortenerEntity.ShortenerUri, shortenerEntity.OrginalUri);
         }
         catch (SqlException e)
         {
@@ -61,7 +61,7 @@ public class UriShortenerService : IUriShortenerService
             var selectedUri = await _dbContext.UriShorteners.SingleOrDefaultAsync(u => u.ShortenerUri == shortUrl);
             if (selectedUri == null) throw new Exception(ExceptionMessageConstants.UrlNotFound);
 
-            return new UriShortenerDto { ShortenerUri = selectedUri.ShortenerUri, OrginalUri = selectedUri.OrginalUri };
+            return new UriShortenerDto(selectedUri.ShortenerUri, selectedUri.OrginalUri);
         }
         catch (SqlException e)
         {
